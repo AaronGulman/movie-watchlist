@@ -28,9 +28,10 @@ nav {
     height: 30%;
     display: flex;
     justify-content: center;
-    background-image: url("images/body-background.png");
-    background-color: black;
+    background-image: url("images/body-background.svg");
     background-repeat: no-repeat;
+    background-size: cover;
+    background-color: black;
 }
 
 section {
@@ -94,7 +95,7 @@ input#search-bar {
     flex: 3;
 }
 
-.search-content {
+.search-results {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -104,7 +105,7 @@ input#search-bar {
     border: 2px solid blue;
 }
 
-#no-data-image {
+#no-data {
     display: block;
     width: 30%;
 }
@@ -121,4 +122,14 @@ input#search-bar {
 
 .watchlist-text p {
     color:#363636;
+}
+
+.watchlist-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.watchlist-btn img {
+    vertical-align: middle;
 }
