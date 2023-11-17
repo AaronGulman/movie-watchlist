@@ -1,0 +1,124 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    background-color: white;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+.main-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    height: 100%;
+    margin: auto;
+}
+
+nav {
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    background-image: url("images/body-background.png");
+    background-color: black;
+    background-repeat: no-repeat;
+}
+
+section {
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+nav a,
+nav a:visited {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.page-links {
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-display {
+    width: 85%;
+    height: 35px;
+    display: flex;
+    position: relative;
+    transform: translateY(-50%);
+    border: 1px solid #D1D5DB;
+    border-radius: 4px;
+    background-color: white;
+}
+
+#search-image {
+    display: block;
+    object-fit: contain;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    flex: 0;
+}
+
+input#search-bar {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    flex: 7;
+}
+
+.search-display button {
+    color: #374151;
+    background-color: white;
+    cursor: pointer;
+    border-style: none none none solid;
+    border-top-right-radius: inherit;
+    border-bottom-right-radius: inherit;
+    border-width: 1px;
+    border-color: #D1D5DB;
+    flex: 3;
+}
+
+.search-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 85%;
+    border: 2px solid blue;
+}
+
+#no-data-image {
+    display: block;
+    width: 30%;
+}
+
+
+/* Watchlist CSS */
+.watchlist-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+    margin-top: 0.5em;
+}
+
+.watchlist-text p {
+    color:#363636;
+}
