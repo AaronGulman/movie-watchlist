@@ -16,6 +16,8 @@ searchBtn.addEventListener("click", async () => {
         
     }))
 
+    searchResults.innerHTML = ""
+
     for (const movie of movieDetails) {
         const {Title, Year, Genre, Plot, Runtime, Poster} = movie
 
