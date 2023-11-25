@@ -10,7 +10,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 h1 {
@@ -21,7 +21,7 @@ h1 {
     display: flex;
     flex: 1;
     flex-direction: column;
-    width: 70%;
+    width: 60%;
     border: 2px solid red;
 }
 
@@ -45,6 +45,7 @@ section {
     align-items: center;
     justify-content: center;
     gap: 2em;
+    padding-bottom: 1em;
     border: 2px solid green;
 }
 
@@ -113,8 +114,6 @@ input#search-bar {
 .movie-info {
     width: 100%;
     display: flex;
-    font-size: 0.85em;
-    border: 2px solid black;
 }
 
 .movie-img {
@@ -126,50 +125,37 @@ input#search-bar {
 .movie-metadata {
     display: flex; 
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 2em;
     width: 70%;
     padding: 0.5em;
-    border: 2px solid orange;
 }
 
-.movie-metadata > * {
-    border: 2px solid red;
+.metadata-title-div {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
 }
 
-/* #metadata-title {
-    grid-row: 2;
-    grid-column: 2/6;
+.metadata-small-text {
+    font-size: 1.2rem;
 }
 
-#metadata-time {
-    grid-row: 3;
-    grid-column: 2;
+.metadata-info-div {
+    display: flex;
+    gap: 1.25em;
 }
 
-#metadata-plot {
-    grid-row: 4;
-    grid-column: 2/7;
+.hr {
+    border-top: 2px solid #D9D9D9;
+    width: 100%;
 }
 
-#metadata-genre {
-    grid-row: 3;
-    grid-column: 3/5;
-}
+.hr:last-of-type {
+    border: none;
+    display: none;
+  }
 
-#metadata-year {
-    grid-row: 2;
-    grid-column: 6/7;
-}
-
-#metadata-button {
-    grid-row: 3;
-    grid-column: 5/7;
-} */
-
-#no-data {
-    display: block;
-    width: 30%;
-}
 
 
 /* Watchlist CSS */

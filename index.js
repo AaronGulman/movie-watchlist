@@ -26,17 +26,22 @@ searchBtn.addEventListener("click", async () => {
         <div class="movie-info">
             <img src="${Poster}" class="movie-img"> 
             <div class="movie-metadata">
-                <h4 id="metadata-title">${Title}</h4>
-                <span id="metadata-year">${Year}</span>
-                <span id="metadata-time">${Runtime}</span>
-                <span id="metadata-genre">${Genre}</span>
-                <button id="metadata-button" class="watchlist-btn" type="button">
-                    <img src="images/add-icon.svg" alt="">
-                    Add to Watchlist
-                </button>
+                <div class="metadata-title-div">
+                    <h3 id="metadata-title">${Title}</h3>
+                    <span id="metadata-year" class="metadata-small-text">(${Year})</span>                
+                </div>
+                <div class="metadata-info-div">
+                    <span id="metadata-time" class="metadata-small-text">${Runtime}</span>
+                    <span id="metadata-genre"class="metadata-small-text">${Genre}</span>
+                    <button id="metadata-button" class="watchlist-btn metadata-small-text" type="button">
+                        <img src="images/add-icon.svg" alt="">
+                        Watchlist
+                    </button>
+                </div>
                 <p id="metadata-plot">${Plot}</p>
             </div> 
         </div>
+        <div class="hr"></div>
         `
         searchResults.innerHTML += html
     }
