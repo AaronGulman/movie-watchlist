@@ -21,7 +21,7 @@ h1 {
     display: flex;
     flex: 1;
     flex-direction: column;
-    width: 60%;
+    width: 55%;
     border: 2px solid red;
 }
 
@@ -126,9 +126,9 @@ input#search-bar {
     display: flex; 
     flex-direction: column;
     justify-content: center;
-    gap: 2em;
     width: 70%;
-    padding: 0.5em;
+    padding: 1em;
+    gap: 2em;
 }
 
 .metadata-title-div {
