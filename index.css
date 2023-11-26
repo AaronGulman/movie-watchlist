@@ -172,11 +172,11 @@ input#search-bar {
 }
 
 .watchlist-btn {
-    border: none;
-    background: none;
+    background-color: inherit;
+    background-image: url("images/add-icon.svg");
+    background-repeat: no-repeat;
+    background-position: center left;
+    padding-left: 1.2em;
     cursor: pointer;
-}
-
-.watchlist-btn img {
-    vertical-align: middle;
+    border: none;
 }

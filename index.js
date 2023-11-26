@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from "https://jspm.dev/uuid"
 const searchBtn = document.querySelector("#search-btn")
 const searchResults = document.querySelector(".search-results")
 const searchInput = document.querySelector("#search-bar")
@@ -8,13 +9,6 @@ searchInput.addEventListener("keypress", (e) => {
       searchBtn.click();
     }
 })
-
-const movieButtons = document.getElementsByClassName("watchlist-btn")
-for (const button of movieButtons) {
-    button.addEventListener("click", (e) => {
-        console.log(e.target)
-    })
-}
 
 searchBtn.addEventListener("click", async () => {
     try {
@@ -44,10 +38,11 @@ searchBtn.addEventListener("click", async () => {
 
             for (const movie of movieDetails) {
                 const {Title, Year, Genre, Plot, Runtime, Poster} = movie
-
+                let uniqueId = uuidv4()
                 let html = ""
+
                 html = `
-                <div class="movie-info">
+                <div class="movie-info" data-movie-id=${uniqueId}>
                     <img src="${Poster}" class="movie-img"> 
                     <div class="movie-metadata">
                         <div class="metadata-title-div">
@@ -56,9 +51,8 @@ searchBtn.addEventListener("click", async () => {
                         </div>
                         <div class="metadata-info-div">
                             <span id="metadata-time" class="metadata-small-text">${Runtime}</span>
-                            <span id="metadata-genre"class="metadata-small-text">${Genre}</span>
+                            <span id="metadata-genre" class="metadata-small-text">${Genre}</span>
                             <button id="metadata-button" class="watchlist-btn metadata-small-text" type="button">
-                                <img src="images/add-icon.svg" alt="">
                                 Watchlist
                             </button>
                         </div>
@@ -68,6 +62,7 @@ searchBtn.addEventListener("click", async () => {
                 <div class="hr"></div>
                 `
                 searchResults.innerHTML += html
+
             }
 
             const movieImages = document.getElementsByClassName("movie-img")
@@ -76,6 +71,13 @@ searchBtn.addEventListener("click", async () => {
                     e.target.onerror = null
                     e.target.src = "images/image-unavailable.svg"
                     e.target.style.minHeight = "250px"
+                })
+            }
+
+            const movieButtons = document.getElementsByClassName("watchlist-btn")
+            for (const button of movieButtons) {
+                button.addEventListener("click", (e) => {
+                    console.log(e)
                 })
             }
 
