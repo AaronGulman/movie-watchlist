@@ -37,12 +37,11 @@ searchBtn.addEventListener("click", async () => {
             searchResults.innerHTML = ""
 
             for (const movie of movieDetails) {
-                const {Title, Year, Genre, Plot, Runtime, Poster} = movie
-                let uniqueId = uuidv4()
+                const {Title, Year, Genre, Plot, Runtime, Poster, imdbID} = movie
                 let html = ""
 
                 html = `
-                <div class="movie-info" data-movie-id=${uniqueId}>
+                <div class="movie-info" data-movie-id=${imdbID}>
                     <img src="${Poster}" class="movie-img"> 
                     <div class="movie-metadata">
                         <div class="metadata-title-div">
@@ -50,7 +49,7 @@ searchBtn.addEventListener("click", async () => {
                             <span id="metadata-year" class="metadata-small-text">(${Year})</span>                
                         </div>
                         <div class="metadata-info-div">
-                            <span id="metadata-time" class="metadata-small-text">${Runtime}</span>
+                            <span id="metadata-runtime" class="metadata-small-text">${Runtime}</span>
                             <span id="metadata-genre" class="metadata-small-text">${Genre}</span>
                             <button id="metadata-button" class="watchlist-btn metadata-small-text" type="button">
                                 Watchlist
@@ -74,12 +73,24 @@ searchBtn.addEventListener("click", async () => {
                 })
             }
 
-            const movieButtons = document.getElementsByClassName("watchlist-btn")
-            for (const button of movieButtons) {
-                button.addEventListener("click", (e) => {
-                    console.log(e)
-                })
-            }
+            document.body.addEventListener("click", (e) => {
+                if(e.target.id === "metadata-button") {
+                   let movieObj = {}
+                   let targetParent = e.target.closest(".movie-info")
+                   movieObj = {
+                        Title: targetParent.querySelector("#metadata-title").innerText,
+                        Year: targetParent.querySelector("#metadata-year").innerText,
+                        Genre: targetParent.querySelector("#metadata-genre").innerText,
+                        Plot: targetParent.querySelector("#metadata-plot").innerText,
+                        Runtime: targetParent.querySelector("#metadata-runtime").innerText,
+                        Poster: targetParent.querySelector(".movie-img").src,
+                        imdbID: targetParent.getAttribute("data-movie-id")
+                   }
+
+                   addToWatchlist(movieObj.imdbID, movieObj)
+                }
+
+            })
 
         }
      
@@ -101,4 +112,11 @@ async function moreMovieInfo(imdbID) {
     }
 
     return extraMovieData
+}
+
+
+function addToWatchlist(movieID, movieObj) {
+    if(localStorage.getItem(movieID) === null) {
+        localStorage.setItem(movieID, JSON.stringify(movieObj))
+    }
 }
