@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from "https://jspm.dev/uuid"
 const searchBtn = document.querySelector("#search-btn")
 const searchResults = document.querySelector(".search-results")
 const searchInput = document.querySelector("#search-bar")
@@ -37,29 +36,8 @@ searchBtn.addEventListener("click", async () => {
             searchResults.innerHTML = ""
 
             for (const movie of movieDetails) {
-                const {Title, Year, Genre, Plot, Runtime, Poster, imdbID} = movie
-                let html = ""
-
-                html = `
-                <div class="movie-info" data-movie-id=${imdbID}>
-                    <img src="${Poster}" class="movie-img"> 
-                    <div class="movie-metadata">
-                        <div class="metadata-title-div">
-                            <h3 id="metadata-title">${Title}</h3>
-                            <span id="metadata-year" class="metadata-small-text">(${Year})</span>                
-                        </div>
-                        <div class="metadata-info-div">
-                            <span id="metadata-runtime" class="metadata-small-text">${Runtime}</span>
-                            <span id="metadata-genre" class="metadata-small-text">${Genre}</span>
-                            <button id="metadata-button" class="watchlist-btn metadata-small-text" type="button">Watchlist</button>
-                        </div>
-                        <p id="metadata-plot">${Plot}</p>
-                    </div> 
-                </div>
-                <div class="hr"></div>
-                `
-                searchResults.innerHTML += html
-
+                let [movieEl, hrEl] = createMovieElement(movie)
+                searchResults.append(movieEl, hrEl)
             }
 
             const movieImages = document.getElementsByClassName("movie-img")
@@ -117,3 +95,67 @@ function addToWatchlist(movieID, movieObj) {
         localStorage.setItem(movieID, JSON.stringify(movieObj))
     }
 }
+
+
+function createMovieElement(movie) {
+    const {Title, Year, Genre, Plot, Runtime, Poster, imdbID} = movie
+
+    const movieDiv = document.createElement("div")
+    movieDiv.classList.add("movie-info")
+    movieDiv.setAttribute("data-movie-id", imdbID)
+
+    const img = document.createElement("img")
+    img.classList.add("movie-img")
+    img.src = Poster
+    movieDiv.append(img)
+
+    const metadataDiv = document.createElement("div")
+    metadataDiv.classList.add("movie-metadata")
+
+    const metadataTitleDiv = document.createElement("div")
+    metadataTitleDiv.classList.add("metadata-title-div")
+    const h3 = document.createElement("h3")
+    h3.setAttribute("id", "metadata-title")
+    h3.innerText = Title
+    const spanYear = document.createElement("span")
+    spanYear.classList.add("metadata-smalltext")
+    spanYear.innerText = Year
+    metadataTitleDiv.append(h3)
+    metadataTitleDiv.append(spanYear)
+
+    const metadataInfoDiv = document.createElement("div")
+    metadataInfoDiv.classList.add("metadata-info-div")
+    const spanRuntime = document.createElement('span')
+    spanRuntime.setAttribute("id", "metadata-runtime")
+    spanRuntime.classList.add("metadata-small-text")
+    spanRuntime.innerText = Runtime
+    const spanGenre = document.createElement("span")
+    spanGenre.setAttribute("id", "metadata-genre")
+    spanGenre.classList.add("metadata-small-text")
+    spanGenre.innerText = Genre
+    const button = document.createElement("button")
+    button.setAttribute("id", "metadata-button")
+    button.classList.add("watchlist-btn", "metadata-small-text")
+    button.setAttribute("type", "button")
+    button.innerText = "Watchlist"
+    metadataInfoDiv.append(spanRuntime)
+    metadataInfoDiv.append(spanGenre)
+    metadataInfoDiv.append(button)
+
+    const plot = document.createElement("p")
+    plot.setAttribute("id", "metadata-plot")
+    plot.innerText = Plot
+  
+    metadataDiv.append(metadataTitleDiv)
+    metadataDiv.append(metadataInfoDiv)
+    metadataDiv.append(plot)
+  
+    movieDiv.append(metadataDiv)
+
+    const hrDiv = document.createElement("div")
+    hrDiv.classList.add("hr")
+
+    return [movieDiv, hrDiv]
+}
+
+
