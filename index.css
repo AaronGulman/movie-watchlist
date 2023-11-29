@@ -169,9 +169,16 @@ input#search-bar {
     color:#363636;
 }
 
-.watchlist-btn {
-    background-color: inherit;
+.add-btn {
     background-image: url("images/add-icon.svg");
+}
+
+.remove-btn {
+    background-image: url("images/minus-icon.svg");
+}
+
+.add-minus-btn-styling {
+    background-color: inherit;
     background-repeat: no-repeat;
     background-position: center left;
     padding-left: 1.2em;
@@ -192,5 +199,5 @@ input#search-bar {
 }
 
 #watchlist-search-results {
-    
+    margin-top: 2em;
 }

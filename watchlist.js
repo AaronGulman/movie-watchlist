@@ -1,11 +1,21 @@
+import {createMovieElement} from "./sharedfunctions.js"
+const watchlistResults = document.querySelector("#watchlist-search-results")
+
+
 window.addEventListener("load", (e) => {
-    if(document.location.pathname === "/watchlist.html") {
-        console.log(document.location.pathname)
-        //Insert function that grabs objects from localStorage
+    if(document.location.pathname === "/watchlist.html" && Object.keys(localStorage).length > 0) {
+        watchlistResults.innerHTML = ""
+        const savedMovies = retrieveMovies()
+        for (const movie in savedMovies) {
+            let movieInfo
+            movieInfo = savedMovies[movie]
+            watchlistResults.append(createMovieElement(movieInfo, false)[0])
+            watchlistResults.append(createMovieElement(movieInfo, false)[1])
+        }
     }
 })
 
-//Create function that grabs movie objects from localStorage  
+
 function retrieveMovies() {
     let movieObj = {}
     for (const movie in localStorage) {
@@ -13,12 +23,10 @@ function retrieveMovies() {
             movieObj[movie] = JSON.parse(localStorage.getItem(movie))
         }
     }
-    console.log(movieObj)
     return movieObj
 }
 
-function renderMovies(movie) {
-    
-}
+
+
 
 
