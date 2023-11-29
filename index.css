@@ -163,8 +163,6 @@ input#search-bar {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.5em;
-    margin-top: 0.5em;
 }
 
 .watchlist-text p {
@@ -179,4 +177,16 @@ input#search-bar {
     padding-left: 1.2em;
     cursor: pointer;
     border: none;
+}
+
+#watchlist-page-btn {
+    font-size: 1rem;
+}
+
+#watchlist-page-btn a {
+    text-decoration: none;
+}
+
+#watchlist-page-btn a:visited {
+    color: initial;
 }

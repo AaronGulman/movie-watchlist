@@ -51,9 +51,7 @@ searchBtn.addEventListener("click", async () => {
                         <div class="metadata-info-div">
                             <span id="metadata-runtime" class="metadata-small-text">${Runtime}</span>
                             <span id="metadata-genre" class="metadata-small-text">${Genre}</span>
-                            <button id="metadata-button" class="watchlist-btn metadata-small-text" type="button">
-                                Watchlist
-                            </button>
+                            <button id="metadata-button" class="watchlist-btn metadata-small-text" type="button">Watchlist</button>
                         </div>
                         <p id="metadata-plot">${Plot}</p>
                     </div> 
@@ -89,7 +87,6 @@ searchBtn.addEventListener("click", async () => {
 
                    addToWatchlist(movieObj.imdbID, movieObj)
                 }
-
             })
 
         }
