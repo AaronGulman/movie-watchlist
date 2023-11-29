@@ -19,6 +19,7 @@ export function createMovieElement(movie, isAddButton = true) {
     h3.setAttribute("id", "metadata-title")
     h3.innerText = Title
     const spanYear = document.createElement("span")
+    spanYear.setAttribute("id", "metadata-year")
     spanYear.classList.add("metadata-smalltext")
     spanYear.innerText = Year
     metadataTitleDiv.append(h3)
