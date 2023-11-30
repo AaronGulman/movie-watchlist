@@ -38,7 +38,7 @@ export function createMovieElement(movie, isAddButton = true) {
     const button = document.createElement("button")
     
     if(isAddButton === true) {
-        button.setAttribute("id", "metadata-button")
+        button.setAttribute("id", "metadata-btn")
         button.classList.add("add-btn", "metadata-small-text", "add-minus-btn-styling")
         button.innerText = "Watchlist"
     } else {

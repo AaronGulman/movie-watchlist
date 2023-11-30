@@ -52,7 +52,7 @@ searchBtn.addEventListener("click", async () => {
             }
 
             document.body.addEventListener("click", (e) => {
-                if(e.target.id === "metadata-button") {
+                if(e.target.id === "metadata-btn") {
                    let movieObj = {}
                    let targetParent = e.target.closest(".movie-info")
                    movieObj = {
