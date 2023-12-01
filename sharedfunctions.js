@@ -20,7 +20,6 @@ export function createMovieElement(movie, isAddButton = true) {
     h3.innerText = Title
     const spanYear = document.createElement("span")
     spanYear.setAttribute("id", "metadata-year")
-    spanYear.classList.add("metadata-smalltext")
     spanYear.innerText = Year
     metadataTitleDiv.append(h3)
     metadataTitleDiv.append(spanYear)
@@ -29,21 +28,19 @@ export function createMovieElement(movie, isAddButton = true) {
     metadataInfoDiv.classList.add("metadata-info-div")
     const spanRuntime = document.createElement('span')
     spanRuntime.setAttribute("id", "metadata-runtime")
-    spanRuntime.classList.add("metadata-small-text")
     spanRuntime.innerText = Runtime
     const spanGenre = document.createElement("span")
     spanGenre.setAttribute("id", "metadata-genre")
-    spanGenre.classList.add("metadata-small-text")
     spanGenre.innerText = Genre
     const button = document.createElement("button")
     
     if(isAddButton === true) {
         button.setAttribute("id", "metadata-btn")
-        button.classList.add("add-btn", "metadata-small-text", "add-minus-btn-styling")
+        button.classList.add("add-btn", "add-minus-btn-styling")
         button.innerText = "Watchlist"
     } else {
         button.setAttribute("id", "remove-btn")
-        button.classList.add("remove-btn", "metadata-small-text", "add-minus-btn-styling")
+        button.classList.add("remove-btn", "add-minus-btn-styling")
         button.innerText = "Remove" 
     }
 
