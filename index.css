@@ -191,6 +191,8 @@ input#search-bar {
     background-color: inherit;
     background-repeat: no-repeat;
     background-position: left center;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
     cursor: pointer;
     border: none;
 }
