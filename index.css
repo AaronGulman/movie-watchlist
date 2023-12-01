@@ -197,14 +197,12 @@ input#search-bar {
 
 #watchlist-page-btn {
     font-size: 1rem;
-}
-
-#watchlist-page-btn a {
-    text-decoration: none;
-}
-
-#watchlist-page-btn a:visited {
-    color: initial;
+    background-image: url("/images/add-icon.svg");
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-color: inherit;
+    padding-left: 1.25em;
+    border: none;
 }
 
 #watchlist-search-results {
