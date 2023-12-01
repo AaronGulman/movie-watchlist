@@ -2,7 +2,7 @@ import {createMovieElement} from "./sharedfunctions.js"
 const watchlistResults = document.querySelector("#watchlist-search-results")
 
 window.addEventListener("load", (e) => {
-    if(document.location.pathname === "/watchlist.html" && Object.keys(localStorage).length > 0) {
+    if(document.location.pathname === "/watchlist" && Object.keys(localStorage).length > 0) {
         renderMovies(watchlistResults)
     } 
      
