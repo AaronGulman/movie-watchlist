@@ -3,6 +3,7 @@ const searchBtn = document.querySelector("#search-btn")
 const searchResults = document.querySelector(".search-results")
 const searchInput = document.querySelector("#search-bar")
 
+
 searchInput.addEventListener("keypress", (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
@@ -78,7 +79,7 @@ searchBtn.addEventListener("click", async () => {
 
 
 async function moreMovieInfo(imdbID) {
-    const response = await fetch(`http://www.omdbapi.com/?apikey=d3372d1b&i=${imdbID}`)
+    const response = await fetch(`https://www.omdbapi.com/?apikey=d3372d1b&i=${imdbID}`)
     const movieData = await response.json()
     const extraMovieData = {
         Genre: movieData.Genre, 
