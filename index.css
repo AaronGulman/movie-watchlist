@@ -116,6 +116,11 @@ input#search-bar {
   gap: 1em;
 }
 
+.movie-link {
+  display: flex;
+  justify-content: center;
+}
+
 .movie-img {
   width: 30%;
   object-fit: contain;
