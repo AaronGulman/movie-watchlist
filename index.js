@@ -55,7 +55,6 @@ searchBtn.addEventListener('click', async () => {
 
       document.body.addEventListener('click', (e) => {
         if (e.target.id === 'metadata-btn') {
-          console.log('#metadata-btn')
           let movieObj = {}
           let targetParent = e.target.closest('.movie-info')
           movieObj = {
@@ -68,6 +67,17 @@ searchBtn.addEventListener('click', async () => {
             imdbID: targetParent.getAttribute('data-movie-id'),
           }
           addToWatchlist(movieObj.imdbID, movieObj)
+          const closestSpan = e.target.querySelector('.clicked-span')
+          console.log(closestSpan)
+          closestSpan.classList.remove('animate-in', 'animate-out')
+          void closestSpan.offsetWidth
+
+          closestSpan.classList.add('animate-in')
+
+          setTimeout(() => {
+            closestSpan.classList.remove('animate-in')
+            closestSpan.classList.add('animate-out')
+          }, 2000)
         }
       })
     }
