@@ -33,20 +33,28 @@ export function createMovieElement(movie, isAddButton = true) {
   spanGenre.setAttribute('id', 'metadata-genre')
   spanGenre.innerText = Genre
   const button = document.createElement('button')
+  button.style.position = 'relative'
 
   if (isAddButton === true) {
     button.setAttribute('id', 'metadata-btn')
-    button.classList.add('add-btn', 'add-minus-btn-styling')
-    button.style.position = 'relative'
+    button.classList.add('add-minus-btn-styling')
     button.innerText = 'Watchlist'
+    const addBtn = document.createElement('img')
+    addBtn.src = 'images/add-icon.svg'
+    addBtn.classList.add('add-btn')
     const clickedSpan = document.createElement('span')
     clickedSpan.classList.add('clicked-span')
     clickedSpan.innerText = 'Movie added!'
+    button.append(addBtn)
     button.append(clickedSpan)
   } else {
     button.setAttribute('id', 'remove-btn')
-    button.classList.add('remove-btn', 'add-minus-btn-styling')
+    button.classList.add('add-minus-btn-styling')
     button.innerText = 'Remove'
+    const minusBtn = document.createElement('img')
+    minusBtn.src = 'images/minus-icon.svg'
+    minusBtn.classList.add('remove-btn')
+    button.append(minusBtn)
   }
 
   button.setAttribute('type', 'button')

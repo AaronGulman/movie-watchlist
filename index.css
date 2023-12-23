@@ -149,12 +149,10 @@ input#search-bar {
   align-self: start;
   border-radius: 5px;
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   pointer-events: none;
   animation-duration: 2s;
   animation-fill-mode: forwards;
-  transform: translateY(-15%);
 }
 
 @keyframes fadeIn {
@@ -224,21 +222,23 @@ input#search-bar {
 }
 
 .add-btn {
-  background-image: url('images/add-icon.svg');
-  padding-left: 1.5em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-380%, -50%);
 }
 
 .remove-btn {
-  background-image: url('images/minus-icon.svg');
-  padding-left: 1.2em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-380%, -50%);
 }
 
 .add-minus-btn-styling {
   background-color: inherit;
   background-repeat: no-repeat;
   background-position: left center;
-  padding-top: 0.2em;
-  padding-bottom: 0.2em;
   cursor: pointer;
   border: none;
 }
@@ -275,10 +275,6 @@ input#search-bar {
 
   .page-links {
     font-size: 1.25rem;
-  }
-
-  .add-btn {
-    padding-left: 1em;
   }
 
   #metadata-btn {
@@ -339,10 +335,6 @@ input#search-bar {
     font-size: 1.2rem;
   }
 
-  .add-btn {
-    padding-left: 1.2em;
-  }
-
   .metadata-info-div {
     display: flex;
     gap: 0.25em;
@@ -373,10 +365,6 @@ input#search-bar {
 
   .remove-btn {
     font-size: 1.2rem;
-  }
-
-  .add-btn {
-    padding-left: 1em;
   }
 
   .metadata-info-div {
