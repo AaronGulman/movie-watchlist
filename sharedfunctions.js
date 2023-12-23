@@ -37,7 +37,12 @@ export function createMovieElement(movie, isAddButton = true) {
   if (isAddButton === true) {
     button.setAttribute('id', 'metadata-btn')
     button.classList.add('add-btn', 'add-minus-btn-styling')
+    button.style.position = 'relative'
     button.innerText = 'Watchlist'
+    const clickedSpan = document.createElement('span')
+    clickedSpan.classList.add('clicked-span')
+    clickedSpan.innerText = 'Movie added!'
+    button.append(clickedSpan)
   } else {
     button.setAttribute('id', 'remove-btn')
     button.classList.add('remove-btn', 'add-minus-btn-styling')
